@@ -1,0 +1,9 @@
+<h1>All Users</h1>
+
+<ul>
+    {% for user in users %}
+    <li>
+        {{user.username}} -- {{user.password}} -- {{user.email}} -- {{user.website}}
+    </li>
+    {% endfor %}
+</ul>
