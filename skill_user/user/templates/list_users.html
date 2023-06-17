@@ -5,6 +5,7 @@
     <li>
         {{user.username}} -- {{user.password}} -- {{user.email}} -- {{user.website}} |
         <a href="{% url 'user-update' user.pk %}"> Edit </a>
+        <a href="{% url 'user-delete' user.pk %}"> Delete </a>
     </li>
     {% endfor %}
 </ul>

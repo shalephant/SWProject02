@@ -30,4 +30,8 @@ def update_user(request, pk):
     return render(request, 'create_user.html', context)
 
 def delete_user(request, pk):
-    pass
+    user = User.objects.get(pk=pk)
+    if request.method == "POST":
+        user.delete()
+        return redirect("user-list")
+    return render(request, 'delete_user.html', {"obj": user})
