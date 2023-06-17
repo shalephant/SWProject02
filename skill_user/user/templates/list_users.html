@@ -3,7 +3,11 @@
 <ul>
     {% for user in users %}
     <li>
-        {{user.username}} -- {{user.password}} -- {{user.email}} -- {{user.website}}
+        {{user.username}} -- {{user.password}} -- {{user.email}} -- {{user.website}} |
+        <a href="{% url 'user-update' user.pk %}"> Edit </a>
     </li>
     {% endfor %}
 </ul>
+
+<button onclick="location.href='{% url 'user-create' %}'" type="button">Create User</button>
+

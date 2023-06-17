@@ -18,10 +18,16 @@ def create_user(request):
             return redirect("user-list")
     return render(request, "create_user.html", {"form": form})
 
-def update_user():
-    pass
+def update_user(request, pk):
+    user = User.objects.get(pk=pk)
+    form = UserForm(instance=user)
+    if request.method == "POST":
+        form = UserForm(request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect("user-list")
+    context = {'form': form}
+    return render(request, 'create_user.html', context)
 
 def delete_user(request, pk):
-    event = User.objects.get(pk=pk)
-    event.delete()
-    return redirect("user-list")
+    pass
